@@ -1,3 +1,21 @@
 <resources>
     <string name="app_name">Movie Buff</string>
+    <string name="name">Name</string>
+    <string name="mobile">Mobile Number</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="Signup_bottom">Don\'t have account? Sign Up</string>
+    <string name="Signup">Signup</string>
+    <string name="register">Register</string>
+    <string name="login">login</string>
+    <string name="username">Username</string>
+    <string name="Signup_bottom_1">Already have an account? Sign in</string>
+
+    <string name="trailer">Trailer</string>
+    <string name="cc">Cast &amp; Crew</string>
+    <string name="synopsis">synopsis</string>
+    <string name="reviews">reviews</string>
+
+
+
 </resources>

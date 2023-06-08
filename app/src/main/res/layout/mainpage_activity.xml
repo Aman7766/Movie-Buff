@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+
+    <include layout="@layout/toolbar"
+        android:id="@+id/tolb"/>
+
+    <RelativeLayout
+        android:layout_below="@+id/tolb"
+        android:layout_margin="10dp"
+        android:layout_marginTop="501dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+       >
+
+        <ImageView
+            android:id="@+id/mtxt"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:scaleType="centerCrop"
+            android:src="@mipmap/d2d"/>
+
+        <SeekBar
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:layout_below="@+id/mtxt"
+            android:id="@+id/mseek"
+            >
+
+        </SeekBar>
+        <TextView
+            style="@style/parent"
+            android:text="@string/trailer"
+            android:textSize="45sp"
+            android:layout_below="@id/mseek"
+            android:gravity="center_horizontal"
+            android:textColor="@color/blue"
+            android:textStyle="bold"
+            android:id="@+id/mbtxt">
+        </TextView>
+
+        <VideoView
+            android:id="@+id/videoView"
+            android:layout_below="@id/mbtxt"
+            android:layout_width="wrap_content"
+            android:layout_height="250dp"
+            />
+
+        <Button
+
+            style="@style/Button"
+            android:id="@+id/cc"
+            android:text="@string/cc"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="35dp"
+            android:layout_below="@id/videoView"
+            android:textAllCaps="true"
+            >
+        </Button>
+        <Button
+            android:layout_gravity="center_horizontal"
+            style="@style/Button"
+            android:layout_marginStart="35dp"
+            android:text="@string/synopsis"
+          android:layout_toRightOf="@id/cc"
+            android:layout_marginTop="10dp"
+            android:layout_below="@id/videoView"
+            android:textAllCaps="true"
+            >
+        </Button>
+        <Button
+            android:layout_gravity="center_horizontal"
+            style="@style/Button"
+            android:layout_marginTop="10dp"
+            android:layout_centerHorizontal="true"
+            android:text="@string/reviews"
+             android:layout_below="@id/cc"
+            android:textAllCaps="true"
+            >
+        </Button>
+    </RelativeLayout>
+    </RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
