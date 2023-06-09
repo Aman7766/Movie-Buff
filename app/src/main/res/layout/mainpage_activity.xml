@@ -31,19 +31,12 @@
             android:scaleType="centerCrop"
             android:src="@mipmap/d2d"/>
 
-        <SeekBar
-            android:layout_width="match_parent"
-            android:layout_height="20dp"
-            android:layout_below="@+id/mtxt"
-            android:id="@+id/mseek"
-            >
 
-        </SeekBar>
         <TextView
             style="@style/parent"
             android:text="@string/trailer"
             android:textSize="45sp"
-            android:layout_below="@id/mseek"
+            android:layout_below="@id/mtxt"
             android:gravity="center_horizontal"
             android:textColor="@color/blue"
             android:textStyle="bold"
@@ -56,15 +49,21 @@
             android:layout_width="wrap_content"
             android:layout_height="250dp"
             />
+        <SeekBar
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_below="@+id/videoView"
+            android:id="@+id/mseek"
+            >
 
+        </SeekBar>
         <Button
-
             style="@style/Button"
             android:id="@+id/cc"
             android:text="@string/cc"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="5dp"
             android:layout_marginStart="35dp"
-            android:layout_below="@id/videoView"
+            android:layout_below="@id/mseek"
             android:textAllCaps="true"
             >
         </Button>
@@ -74,8 +73,8 @@
             android:layout_marginStart="35dp"
             android:text="@string/synopsis"
           android:layout_toRightOf="@id/cc"
-            android:layout_marginTop="10dp"
-            android:layout_below="@id/videoView"
+            android:layout_marginTop="5dp"
+            android:layout_below="@id/mseek"
             android:textAllCaps="true"
             >
         </Button>
