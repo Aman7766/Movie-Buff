@@ -15,6 +15,15 @@
     <string name="cc">Cast &amp; Crew</string>
     <string name="synopsis">synopsis</string>
     <string name="reviews">reviews</string>
+    <string name="welcome">Welcome</string>
+    <string name="user">User</string>
+    <string name="profile_pic">Profile Picture</string>
+    <string name="first_name">First name</string>
+    <string name="last_name">Last name</string>
+
+    <string name="contact">Contact</string>
+    <string name="dob">DOB</string>
+    <string name="save">Save</string>
 
 
 

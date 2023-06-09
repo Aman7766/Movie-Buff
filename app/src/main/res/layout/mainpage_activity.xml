@@ -3,7 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_height="match_parent"
-    android:layout_width="match_parent">
+    android:layout_width="wrap_content">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -19,7 +19,6 @@
     <RelativeLayout
         android:layout_below="@+id/tolb"
         android:layout_margin="10dp"
-        android:layout_marginTop="501dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
        >
@@ -27,7 +26,7 @@
         <ImageView
             android:id="@+id/mtxt"
             android:layout_width="match_parent"
-            android:layout_height="200dp"
+            android:layout_height="180dp"
             android:scaleType="centerCrop"
             android:src="@mipmap/d2d"/>
 
@@ -35,7 +34,7 @@
         <TextView
             style="@style/parent"
             android:text="@string/trailer"
-            android:textSize="45sp"
+            android:textSize="25sp"
             android:layout_below="@id/mtxt"
             android:gravity="center_horizontal"
             android:textColor="@color/blue"
@@ -47,7 +46,7 @@
             android:id="@+id/videoView"
             android:layout_below="@id/mbtxt"
             android:layout_width="wrap_content"
-            android:layout_height="250dp"
+            android:layout_height="200dp"
             />
         <SeekBar
             android:layout_width="match_parent"
