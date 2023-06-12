@@ -39,7 +39,7 @@
             style="@style/wrap_contetnt"
             android:text="@string/profile_pic"
             android:textSize="@dimen/Heading"
-            android:textStyle="bold"
+
             android:textColor="@color/black"
             android:layout_gravity="center_vertical"
             android:layout_marginStart="10dp">
@@ -56,7 +56,7 @@
                 style="@style/wrap_contetnt"
                 android:text="@string/first_name"
                 android:textSize="@dimen/Heading"
-                android:textStyle="bold"
+
                 android:textColor="@color/black"
                 android:layout_gravity="center_vertical"
                 android:layout_marginStart="10dp">
@@ -64,7 +64,6 @@
             <EditText
                 style="@style/parent"
                 android:textSize="@dimen/Heading"
-                android:textStyle="bold"
                 android:textColor="@color/black"
                 android:layout_gravity="center_vertical"
                 android:layout_marginStart="20dp"
@@ -83,7 +82,7 @@
                 style="@style/wrap_contetnt"
                 android:text="@string/last_name"
                 android:textSize="@dimen/Heading"
-                android:textStyle="bold"
+
                 android:textColor="@color/black"
                 android:layout_gravity="center_vertical"
                 android:layout_marginStart="10dp">
@@ -92,7 +91,7 @@
 
                 style="@style/parent"
                 android:textSize="@dimen/Heading"
-                android:textStyle="bold"
+
                 android:textColor="@color/black"
                 android:layout_gravity="center_vertical"
                 android:layout_marginStart="25dp"
@@ -110,7 +109,7 @@
                 style="@style/wrap_contetnt"
                 android:text="@string/contact"
                 android:textSize="@dimen/Heading"
-                android:textStyle="bold"
+
                 android:textColor="@color/black"
                 android:layout_gravity="center_vertical"
                 android:layout_marginStart="10dp">
@@ -118,7 +117,7 @@
             <EditText
                 style="@style/parent"
                 android:textSize="@dimen/Heading"
-                android:textStyle="bold"
+
                 android:textColor="@color/black"
                 android:layout_gravity="center_vertical"
                 android:layout_marginStart="55dp"
@@ -136,7 +135,7 @@
                 style="@style/wrap_contetnt"
                 android:text="@string/email"
                 android:textSize="@dimen/Heading"
-                android:textStyle="bold"
+
                 android:textColor="@color/black"
                 android:layout_gravity="center_vertical"
                 android:layout_marginStart="10dp">
@@ -144,7 +143,7 @@
             <EditText
                 style="@style/parent"
                 android:textSize="@dimen/Heading"
-                android:textStyle="bold"
+
                 android:textColor="@color/black"
                 android:layout_gravity="center_vertical"
                 android:layout_marginStart="80dp"
@@ -163,7 +162,7 @@
                 style="@style/wrap_contetnt"
                 android:text="@string/dob"
                 android:textSize="@dimen/Heading"
-                android:textStyle="bold"
+
                 android:textColor="@color/black"
                 android:layout_gravity="center_vertical"
                 android:layout_marginStart="10dp">
