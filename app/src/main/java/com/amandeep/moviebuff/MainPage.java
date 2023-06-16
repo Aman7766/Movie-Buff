@@ -10,12 +10,14 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class MainPage extends AppCompatActivity {
     Button review;
+   
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.mainpage_activity);
         review = findViewById(R.id.rvs);
+
         review.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

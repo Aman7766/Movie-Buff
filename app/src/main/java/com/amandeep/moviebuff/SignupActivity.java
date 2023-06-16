@@ -2,10 +2,10 @@ package com.amandeep.moviebuff;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -22,7 +22,7 @@ public class SignupActivity extends AppCompatActivity {
     Button button;
 
     DBHelper dbHelper;
-    UserDetails userDetails;
+
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -32,12 +32,15 @@ public class SignupActivity extends AppCompatActivity {
         nameLayout = findViewById(R.id.s_nl);
         mobLayout = findViewById(R.id.s_mob);
         emailLayout = findViewById(R.id.s_email);
+   
+
         passLayout = findViewById(R.id.s_pass);
         dbHelper = new DBHelper(SignupActivity.this);
 //        email=findViewById(R.id.s_email);
 //        mobile=findViewById(R.id.s_mob);
 //        password=findViewById(R.id.s_pass);
         button = findViewById(R.id.S_signup);
+
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -49,17 +52,14 @@ public class SignupActivity extends AppCompatActivity {
                     String password = passLayout.getEditText().getText().toString();
                     boolean isInserterd = dbHelper.addData(name, mobile, email, password);
                     if (isInserterd) {
-                        Toast.makeText(getApplicationContext(), "Data Inserted Successfully", Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(SignupActivity.this, LoginActivity.class);
+                        startActivity(intent);
+                        Log.d("SignupActivity", "Signup Done");
                     } else {
-                        Toast.makeText(getApplicationContext(), "Data Not Inserted", Toast.LENGTH_SHORT).show();
-
+                        Log.d("SignupActivity", "Signup failed");
                     }
 
-
-                } else {
-
                 }
-
             }
         });
 
@@ -100,6 +100,12 @@ public class SignupActivity extends AppCompatActivity {
         if (val.isEmpty()) {
             mobLayout.setError("Mobile is required");
             return false;
+        } else if (!val.matches("[0-9]{10}")) {
+            {
+                mobLayout.setError("Only 10 digit required");
+                return true;
+            }
+
         } else {
             mobLayout.setError(null);
             mobLayout.setErrorEnabled(false);
@@ -111,6 +117,9 @@ public class SignupActivity extends AppCompatActivity {
         String val = emailLayout.getEditText().getText().toString();
         if (val.isEmpty()) {
             emailLayout.setError("Email is required");
+            return false;
+        } else if (!val.matches("[a-zA-Z0-9][a-zA-Z0-9_.]*@[a-zA-Z0-9]+([.]([a-zA-Z]+))+")) {
+            emailLayout.setError("Email is invalid");
             return false;
         } else {
             emailLayout.setError(null);
