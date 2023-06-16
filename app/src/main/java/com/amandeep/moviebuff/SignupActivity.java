@@ -32,7 +32,7 @@ public class SignupActivity extends AppCompatActivity {
         nameLayout = findViewById(R.id.s_nl);
         mobLayout = findViewById(R.id.s_mob);
         emailLayout = findViewById(R.id.s_email);
-   
+
 
         passLayout = findViewById(R.id.s_pass);
         dbHelper = new DBHelper(SignupActivity.this);
@@ -85,7 +85,7 @@ public class SignupActivity extends AppCompatActivity {
         } else if (val.length() > 50) {
             nameLayout.setError("Name too long");
             return false;
-        } else if (!val.matches("[a-zA-Z]+")) {
+        } else if (!val.matches("[a-zA-Z ]+")) {
             nameLayout.setError("Invalid name");
             return false;
         } else {
