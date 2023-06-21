@@ -38,7 +38,10 @@ public class LoginActivity extends AppCompatActivity {
                 if (!c) {
                     Toast.makeText(getApplicationContext(), "Failed Login", Toast.LENGTH_SHORT).show();
                 } else {
+
+
                     Intent intent = new Intent(LoginActivity.this, MainPage.class);
+                    intent.putExtra("email", email);
                     startActivity(intent);
 
                 }

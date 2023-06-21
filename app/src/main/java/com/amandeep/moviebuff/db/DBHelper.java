@@ -17,6 +17,7 @@ public class DBHelper extends SQLiteOpenHelper {
     public static final String Col_2 = "mobile";
     public static final String Col_3 = "email_id";
     public static final String Col_4 = "password";
+    public static final String Col_5 = "dob";
 
 
     public static final int DB_VERSION = 1;
@@ -35,7 +36,8 @@ public class DBHelper extends SQLiteOpenHelper {
                 + Col_1 + " TEXT, "
                 + Col_2 + " TEXT, "
                 + Col_3 + " TEXT PRIMARY KEY, "
-                + Col_4 + " TEXT)";
+                + Col_4 + " TEXT, "
+                + Col_5 + " TEXT)";
         db.execSQL(create_query);
 
     }
@@ -89,4 +91,25 @@ public class DBHelper extends SQLiteOpenHelper {
         }
 
     }
+
+    public Cursor ViewData(String em) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        String query = "SELECT * FROM " + TABLE_NAME + " WHERE " + Col_3 + " = '" + em + "'";
+        Cursor cursor = db.rawQuery(query, null);
+        return cursor;
+
+
+    }
+
+    public boolean UpdateData(String name, String contact, String email, String dob) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues cv = new ContentValues();
+        cv.put(Col_1, name);
+        cv.put(Col_2, contact);
+        cv.put(Col_5, dob);
+        db.update(TABLE_NAME, cv, Col_3 + "= '" + email + "'", null);
+        return true;
+
+    }
 }
+

@@ -12,7 +12,7 @@ import androidx.appcompat.app.AppCompatActivity;
 public class MainPage extends AppCompatActivity {
     Button review;
     ImageView three;
-
+    String GEmail;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -20,10 +20,13 @@ public class MainPage extends AppCompatActivity {
         setContentView(R.layout.mainpage_activity);
         review = findViewById(R.id.rvs);
         three = findViewById(R.id.tolimglast);
+        Intent intent = getIntent();
+        GEmail = intent.getStringExtra("email");
         three.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainPage.this, ProfileActivity.class);
+                intent.putExtra("email", GEmail);
                 startActivity(intent);
             }
         });
