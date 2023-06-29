@@ -34,7 +34,6 @@ public class MainPage extends AppCompatActivity {
         review.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 Intent intent = new Intent(getApplicationContext(), ReviewsPage.class);
                 startActivity(intent);
 

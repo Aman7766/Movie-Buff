@@ -34,19 +34,13 @@ public class LoginActivity extends AppCompatActivity {
                 String email = emailLayout.getEditText().getText().toString();
                 String password = passLayout.getEditText().getText().toString();
                 Boolean c = dbHelper.LoginCheck(email, password);
-
                 if (!c) {
                     Toast.makeText(getApplicationContext(), "Failed Login", Toast.LENGTH_SHORT).show();
                 } else {
-
-
                     Intent intent = new Intent(LoginActivity.this, MainPage.class);
                     intent.putExtra("email", email);
                     startActivity(intent);
-
                 }
-
-
             }
         });
         signup_text.setOnClickListener(new View.OnClickListener() {

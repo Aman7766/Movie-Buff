@@ -7,7 +7,7 @@
     <include
         android:id="@+id/prf_toll"
         layout="@layout/toolbar"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+        app:layout_constraintBottom_toTopOf="@+id/l1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -15,6 +15,28 @@
     </include>
 
     <LinearLayout
+        android:id="@+id/l1"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:background="@color/blue"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/prf_toll">
+
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="90dp"
+            android:layout_gravity="center"
+            android:layout_marginStart="150dp"
+            android:scaleType="fitXY"
+            android:src="@mipmap/d2d">
+
+        </ImageView>
+
+    </LinearLayout>
+
+    <!--<LinearLayout
 
         android:id="@+id/linearLayout"
         style="@style/parent"
@@ -28,11 +50,6 @@
             android:layout_marginTop="20dp"
             android:orientation="horizontal">
 
-            <ImageView
-                android:layout_width="100dp"
-                android:layout_height="90dp"
-                android:scaleType="fitXY"
-                android:src="@mipmap/d2d"></ImageView>
 
             <TextView
                 style="@style/wrap_contetnt"
@@ -176,7 +193,7 @@
             android:textSize="20sp">
 
         </Button>
-    </LinearLayout>
+    </LinearLayout>-->
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
