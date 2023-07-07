@@ -17,12 +17,9 @@ import com.google.android.material.textfield.TextInputLayout;
 public class ProfileActivity extends AppCompatActivity {
     ImageView img;
     DBHelper dbHelper;
-
     TextInputLayout name, email, mobile, dob;
-
     Button btn;
-    String PEmail;
-
+    private String PEmail;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -37,7 +34,20 @@ public class ProfileActivity extends AppCompatActivity {
         btn = findViewById(R.id.prf_btn);
         email.setEnabled(false);
         Intent intent = getIntent();
-        PEmail = intent.getStringExtra("email");
+        if (intent.hasExtra("m_email")) {
+            PEmail = intent.getStringExtra("m_email");
+            name.getEditText().setText(PEmail);
+        }
+        if (intent.hasExtra("m_mob")) {
+            mobile.getEditText().setText(intent.getStringExtra("m_mob"));
+        }
+        if (intent.hasExtra("m_name")) {
+            name.getEditText().setText(intent.getStringExtra("m_name"));
+        }
+        if (intent.hasExtra("m_dob")) {
+            dob.getEditText().setText(intent.getStringExtra("m_dob"));
+        }
+
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -52,12 +62,14 @@ public class ProfileActivity extends AppCompatActivity {
                 }
             }
         });
-
-
         img.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(ProfileActivity.this, MainPage.class);
+                intent.putExtra("p_username", name.getEditText().getText().toString());
+                intent.putExtra("p_usermob", mobile.getEditText().getText().toString());
+                intent.putExtra("email", email.getEditText().getText().toString());
+                intent.putExtra("p_userdob", dob.getEditText().getText().toString());
                 startActivity(intent);
             }
         });
@@ -68,15 +80,12 @@ public class ProfileActivity extends AppCompatActivity {
     public void ViewData() {
         Cursor data = dbHelper.ViewData(PEmail);
         if (data.moveToFirst()) {
-
-
             name.getEditText().setText(data.getString(0));
             mobile.getEditText().setText(data.getString(1));
             email.getEditText().setText(data.getString(2));
             if (data.getString(4) != null) {
                 dob.getEditText().setText(data.getString(4));
             }
-
         }
     }
 
@@ -122,4 +131,6 @@ public class ProfileActivity extends AppCompatActivity {
             return true;
         }
     }
+
+
 }

@@ -12,7 +12,10 @@ import androidx.appcompat.app.AppCompatActivity;
 public class MainPage extends AppCompatActivity {
     Button review;
     ImageView three;
-    String GEmail;
+    private String name;
+    private String email;
+    private String mobile;
+    private String dob;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -21,12 +24,19 @@ public class MainPage extends AppCompatActivity {
         review = findViewById(R.id.rvs);
         three = findViewById(R.id.tolimglast);
         Intent intent = getIntent();
-        GEmail = intent.getStringExtra("email");
+        email = intent.getStringExtra("email");
+        mobile = intent.getStringExtra("p_usermob");
+        name = intent.getStringExtra("p_username");
+        dob = intent.getStringExtra("p_userdob");
+
         three.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainPage.this, ProfileActivity.class);
-                intent.putExtra("email", GEmail);
+                intent.putExtra("m_email", email);
+                intent.putExtra("m_mob", mobile);
+                intent.putExtra("m_name", name);
+                intent.putExtra("m_dob", dob);
                 startActivity(intent);
             }
         });
