@@ -31,9 +31,9 @@ public class ProfileActivity extends AppCompatActivity {
         img = findViewById(R.id.hamburg);
         dbHelper = new DBHelper(getApplicationContext());
         name = findViewById(R.id.p_nl);
-        mobile = findViewById(R.id.p_mobile);
-        email = findViewById(R.id.p_email);
-        dob = findViewById(R.id.p_dob);
+        mobile = findViewById(R.id.p_ml);
+        email = findViewById(R.id.p_el);
+        dob = findViewById(R.id.p_dl);
         btn = findViewById(R.id.prf_btn);
         email.setEnabled(false);
         Intent intent = getIntent();
@@ -73,6 +73,10 @@ public class ProfileActivity extends AppCompatActivity {
             name.getEditText().setText(data.getString(0));
             mobile.getEditText().setText(data.getString(1));
             email.getEditText().setText(data.getString(2));
+            if (data.getString(4) != null) {
+                dob.getEditText().setText(data.getString(4));
+            }
+
         }
     }
 
@@ -107,7 +111,6 @@ public class ProfileActivity extends AppCompatActivity {
             return true;
         }
     }
-
 
     public boolean ValiateDob() {
         String dobData = dob.getEditText().getText().toString();
