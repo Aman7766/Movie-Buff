@@ -6,18 +6,20 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageView;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.amandeep.moviebuff.db.DBHelper;
+import com.google.android.material.textfield.TextInputLayout;
 
 public class ProfileActivity extends AppCompatActivity {
     ImageView img;
     DBHelper dbHelper;
-    EditText name, email, mobile, dob;
+
+    TextInputLayout name, email, mobile, dob;
+
     Button btn;
     String PEmail;
 
@@ -28,10 +30,10 @@ public class ProfileActivity extends AppCompatActivity {
         setContentView(R.layout.profilepage_activity);
         img = findViewById(R.id.hamburg);
         dbHelper = new DBHelper(getApplicationContext());
-        name = findViewById(R.id.nameedt);
-        mobile = findViewById(R.id.conedt);
-        email = findViewById(R.id.emailedt);
-        dob = findViewById(R.id.dobedt);
+        name = findViewById(R.id.p_nl);
+        mobile = findViewById(R.id.p_mobile);
+        email = findViewById(R.id.p_email);
+        dob = findViewById(R.id.p_dob);
         btn = findViewById(R.id.prf_btn);
         email.setEnabled(false);
         Intent intent = getIntent();
@@ -40,10 +42,10 @@ public class ProfileActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (ValidateName() && ValidateContact() && ValiateDob()) {
-                    String nameedt = name.getText().toString();
-                    String cn = mobile.getText().toString();
-                    String em = email.getText().toString();
-                    String db = dob.getText().toString();
+                    String nameedt = name.getEditText().getText().toString();
+                    String cn = mobile.getEditText().getText().toString();
+                    String em = email.getEditText().getText().toString();
+                    String db = dob.getEditText().getText().toString();
                     if (dbHelper.UpdateData(nameedt, cn, em, db)) {
                         Log.d("Update", "updated succesfuly");
                     }
@@ -66,14 +68,16 @@ public class ProfileActivity extends AppCompatActivity {
     public void ViewData() {
         Cursor data = dbHelper.ViewData(PEmail);
         if (data.moveToFirst()) {
-            name.setText(data.getString(0));
-            mobile.setText(data.getString(1));
-            email.setText(data.getString(2));
+
+
+            name.getEditText().setText(data.getString(0));
+            mobile.getEditText().setText(data.getString(1));
+            email.getEditText().setText(data.getString(2));
         }
     }
 
     public boolean ValidateName() {
-        String data = name.getText().toString();
+        String data = name.getEditText().getText().toString();
         if (data.isEmpty()) {
             name.setError("Name is required");
             return false;
@@ -91,7 +95,7 @@ public class ProfileActivity extends AppCompatActivity {
     }
 
     public boolean ValidateContact() {
-        String cn = mobile.getText().toString();
+        String cn = mobile.getEditText().getText().toString();
         if (cn.isEmpty()) {
             mobile.setError("Mobile is required");
             return false;
@@ -106,7 +110,7 @@ public class ProfileActivity extends AppCompatActivity {
 
 
     public boolean ValiateDob() {
-        String dobData = dob.getText().toString();
+        String dobData = dob.getEditText().getText().toString();
         if (dobData.isEmpty()) {
             dob.setError("DOB is required");
             return false;
